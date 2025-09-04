@@ -7,6 +7,9 @@
 alias _=sudo
 alias l=ls
 alias g=git
+alias h="cd ~" #cd home
+alias b="cd -" #cd to last directory
+alias c="clear" #clear terminal
 
 # mask built-ins with better defaults
 alias vi=vim

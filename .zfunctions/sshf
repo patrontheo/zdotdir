@@ -1,0 +1,15 @@
+#! /bin/zsh
+
+# To forward provided ports (e.g. "sshf obiwan 5177 5003")
+local host=$1
+shift
+local forwards=""
+
+# Loop through ports and add proper -L options
+for port in "$@"; do
+    forwards+=" -L ${port}:localhost:${port}"
+done
+
+local cmd="/usr/bin/ssh -N $forwards $host"
+echo "[sshf] Executing: $cmd"
+eval $cmd
