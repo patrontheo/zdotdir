@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+# To connect to remote's tmux session
+/usr/bin/ssh -t $@ 'tmux -CC new -A -s main'
