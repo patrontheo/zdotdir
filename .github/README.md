@@ -38,16 +38,15 @@ This configuration includes several custom Zsh functions located in `.zfunctions
 ### Prerequisites
 Before installing this configuration, make sure you have the following tools installed:
 
-**Required Dependencies**
+**Dependencies**
 - **[fzf](https://github.com/junegunn/fzf)** - Fuzzy finder for command-line
 - **[direnv](https://direnv.net/)** - Environment switcher for the shell
-
-**Optional but Recommended**
 - **[tmux](https://github.com/tmux/tmux)** - Terminal multiplexer (required in the target host for `ssht` function)
-- **[Conda/Miniforge](https://github.com/conda-forge/miniforge)** - Python package manager
+- **[MesloLGS NF font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k)** - Required for Powerlevel10k prompt icons (can be installed automatically by Powerlevel10k)
 
 **Configuration Notes**  
-If you use Conda, make sure to set the `CONDA_HOME` environment variable in `.zshrc.d/01-environment.zsh` to point to your Conda installation directory (e.g., `export CONDA_HOME="$HOME/miniforge3"`).
+- If you use Conda, make sure to set the `CONDA_HOME` environment variable in `.zshrc.d/01-environment.zsh` to point to your Conda installation directory (e.g., `export CONDA_HOME="$HOME/miniforge3"`).
+- **iTerm2 users**: Install the MesloLGS NF font and set it in iTerm2 preferences for both your main profile AND the tmux profile to ensure proper display of Powerlevel10k icons.
 
 ### Setup
 Clone this project to `$ZDOTDIR`, and then make `~/.zshenv` source `$ZDOTDIR/.zshenv`.
