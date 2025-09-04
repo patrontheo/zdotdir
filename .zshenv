@@ -22,3 +22,16 @@ path=(
   /usr/local/{,s}bin(N)
   $path
 )
+
+# Environment variables and locale setup
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Conda home if conda is installed
+export CONDA_HOME="$HOME/miniforge3"
+
+# Homebrew environment
+(( $+commands[brew] )) && eval $(brew shellenv)
+
+# Source additional environment if it exists
+[[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
