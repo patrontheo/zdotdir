@@ -27,11 +27,29 @@ path=(
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Conda home if conda is installed
-export CONDA_HOME="$HOME/miniforge3"
-
 # Homebrew environment
 (( $+commands[brew] )) && eval $(brew shellenv)
 
 # Source additional environment if it exists
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
+
+# Conda setup if installed
+export CONDA_HOME="$HOME/miniforge3"
+
+if [[ -n "$CONDA_HOME" ]]; then
+    if [[ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]]; then
+        . "$CONDA_HOME/etc/profile.d/conda.sh"
+    fi
+
+    if [[ -f "$CONDA_HOME/etc/profile.d/mamba.sh" ]]; then
+        . "$CONDA_HOME/etc/profile.d/mamba.sh"
+    fi
+fi
+
+# NVM configuration if installed
+export NVM_DIR="$HOME/.nvm"
+
+if [[ -n "$NVM_DIR" ]]; then
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi

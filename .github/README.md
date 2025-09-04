@@ -23,6 +23,17 @@ A sample antidote `.zsh_plugins.txt` file that bundles plugins with the followin
 - [direnv](https://direnv.net/) and [fzf](https://github.com/junegunn/fzf) integration
 - And much more, all without compromising shell speed :rocket:
 
+### Configuration Structure
+
+This zsh configuration is organized for optimal performance and maintainability:
+
+- **`.zshenv`** - Environment variables and tool installations available globally (both interactive and non-interactive shells)
+  - NVM, Conda, Homebrew environment setup
+  - PATH modifications and global environment variables
+- **`.zshrc.d/`** - Interactive shell features loaded only when needed
+  - Aliases, key bindings, and interactive tools (FZF, Zoxide, etc.)
+  - Modular organization with descriptive filenames loaded alphabetically
+
 ### Custom Functions
 
 This configuration includes several custom Zsh functions located in `.zfunctions/`:
@@ -45,7 +56,8 @@ Before installing this configuration, make sure you have the following tools ins
 - **[MesloLGS NF font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k)** - Required for Powerlevel10k prompt icons (can be installed automatically by Powerlevel10k)
 
 **Configuration Notes**  
-- If you use Conda, make sure to set the `CONDA_HOME` environment variable in `.zshrc.d/01-environment.zsh` to point to your Conda installation directory (e.g., `export CONDA_HOME="$HOME/miniforge3"`).
+- If you use Conda, make sure to set the `CONDA_HOME` environment variable in `.zshenv` to point to your Conda installation directory (e.g., `export CONDA_HOME="$HOME/miniforge3"`).
+- If you use NVM (Node Version Manager), make sure to set the `NVM_DIR` environment variable in `.zshenv` to point to your NVM installation directory (e.g., `export NVM_DIR="$HOME/.nvm"`).
 - **iTerm2 users**: Install the MesloLGS NF font and set it in iTerm2 preferences for both your main profile AND the tmux profile to ensure proper display of Powerlevel10k icons.
 
 ### Setup
