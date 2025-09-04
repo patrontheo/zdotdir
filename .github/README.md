@@ -6,7 +6,7 @@
 
 This project aims to give you an example Zsh config that uses [antidote] as a plugin manager and pulls some amazing Zsh plugins together. Consider it an example configuration of how to use antidote. Feel free to borrow from it for your own config, or fork it and make it your own.
 
-## What's included
+### What's included
 
 A sample antidote `.zsh_plugins.txt` file that bundles plugins with the following plugin provided features:
 - Better Zsh defaults
@@ -23,7 +23,7 @@ A sample antidote `.zsh_plugins.txt` file that bundles plugins with the followin
 - [direnv](https://direnv.net/) and [fzf](https://github.com/junegunn/fzf) integration
 - And much more, all without compromising shell speed :rocket:
 
-## Custom Functions
+### Custom Functions
 
 This configuration includes several custom Zsh functions located in `.zfunctions/`:
 
@@ -33,29 +33,29 @@ This configuration includes several custom Zsh functions located in `.zfunctions
 
 `ct <directory>` - Count the number of files in a directory.
 
-## Prerequisites
+## Installation
 
+### Prerequisites
 Before installing this configuration, make sure you have the following tools installed:
 
-### Required Dependencies
+**Required Dependencies**
 - **[fzf](https://github.com/junegunn/fzf)** - Fuzzy finder for command-line
 - **[direnv](https://direnv.net/)** - Environment switcher for the shell
 
-### Optional but Recommended
-- **[tmux](https://github.com/tmux/tmux)** - Terminal multiplexer (required for `ssht` function)
+**Optional but Recommended**
+- **[tmux](https://github.com/tmux/tmux)** - Terminal multiplexer (required in the target host for `ssht` function)
 - **[Conda/Miniforge](https://github.com/conda-forge/miniforge)** - Python package manager
 
-### Configuration Notes
+**Configuration Notes**  
 If you use Conda, make sure to set the `CONDA_HOME` environment variable in `.zshrc.d/01-environment.zsh` to point to your Conda installation directory (e.g., `export CONDA_HOME="$HOME/miniforge3"`).
 
-## Installation
-
+### Setup
 Clone this project to `$ZDOTDIR`, and then make `~/.zshenv` source `$ZDOTDIR/.zshenv`.
 
 ```zsh
 # clone this project
 ZDOTDIR=~/.config/zsh
-git clone --branch kickstart https://github.com/getantidote/zdotdir $ZDOTDIR
+git clone https://github.com/patrontheo/zdotdir $ZDOTDIR
 
 # source the .zshenv from ZDOTDIR
 [[ -f ~/.zshenv ]] && mv -f ~/.zshenv ~/.zshenv.bak
