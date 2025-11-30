@@ -20,6 +20,7 @@ path=(
   $HOME/.local/{,s}bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
+  /usr/local/go/bin
   $path
 )
 
