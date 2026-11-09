@@ -22,6 +22,7 @@ path=(
   $HOME/.opencode/bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
+  /usr/local/go/bin
   $path
 )
 
@@ -30,7 +31,11 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Homebrew environment
-(( $+commands[brew] )) && eval $(brew shellenv)
+if (( $+commands[brew] )); then
+    eval $(brew shellenv)
+elif [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # Source additional environment if it exists
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
