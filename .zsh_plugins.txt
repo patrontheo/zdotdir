@@ -6,6 +6,7 @@
 # Completions
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
+# Deferred prompt refresh is disabled for this plugin in .zstyles.
 aloxaf/fzf-tab kind:defer # Remove if you don't use fzf
 
 # Completion styles
@@ -20,6 +21,8 @@ belak/zsh-utils path:history
 
 # Prompt
 romkatv/powerlevel10k
+# Load after the prompt theme; the plugin loads its Powerlevel10k helper itself.
+mattmc3/zshrinkwrap path:zshrinkwrap.plugin.zsh
 
 # Utilities
 zshzoo/macos conditional:is-macos
