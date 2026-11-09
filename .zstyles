@@ -9,3 +9,7 @@
 
 # zstyle ':antidote:bundle' file ${ZDOTDIR:-~}/.zplugins.txt
 # zstyle ':antidote:bundle' use-friendly-names 'yes'
+
+# Loading completion widgets does not need to rerun prompt hooks.
+# Replaying these after zshrinkwrap splits the prompt erases its upper line.
+zstyle ':antidote:bundle:aloxaf/fzf-tab' defer-options '-mp'
