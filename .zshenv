@@ -18,6 +18,7 @@ typeset -gU path fpath
 path=(
   $HOME/{,s}bin(N)
   $HOME/.local/{,s}bin(N)
+  $HOME/.config/.fzf/bin(N)
   $HOME/.pixi/bin(N)
   $HOME/.opencode/bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
@@ -46,10 +47,6 @@ export CONDA_HOME="$HOME/miniforge3"
 if [[ -n "$CONDA_HOME" ]]; then
     if [[ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]]; then
         . "$CONDA_HOME/etc/profile.d/conda.sh"
-    fi
-
-    if [[ -f "$CONDA_HOME/etc/profile.d/mamba.sh" ]]; then
-        . "$CONDA_HOME/etc/profile.d/mamba.sh"
     fi
 fi
 
