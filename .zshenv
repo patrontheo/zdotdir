@@ -22,7 +22,7 @@ path=(
   $HOME/.opencode/bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
-  /usr/local/go/bin
+  /usr/local/go/bin(N)
   $path
 )
 
