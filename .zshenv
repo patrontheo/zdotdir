@@ -18,6 +18,8 @@ typeset -gU path fpath
 path=(
   $HOME/{,s}bin(N)
   $HOME/.local/{,s}bin(N)
+  $HOME/.pixi/bin(N)
+  $HOME/.opencode/bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
   $path
@@ -52,4 +54,8 @@ export NVM_DIR="$HOME/.nvm"
 if [[ -n "$NVM_DIR" ]]; then
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi
+
+if [[ -r "$HOME/.claude/certs/ca-bundle.pem" ]]; then
+    export SSL_CERT_FILE="$HOME/.claude/certs/ca-bundle.pem"
 fi
