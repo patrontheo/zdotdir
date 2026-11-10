@@ -1,15 +1,28 @@
-#! /bin/zsh
+#!/bin/zsh
 
-# To forward provided ports (e.g. "sshf obiwan 5177 5003")
-local host=$1
+# Forward the same local and remote ports (e.g. sshf obiwan 5177 5003).
+if (( $# < 2 )) || [[ -z $1 || $1 == -* ]]; then
+    print -u2 -- 'Usage: sshf HOST PORT [PORT ...]'
+    return 1
+fi
+
+if (( ! $+commands[autossh] )); then
+    print -u2 -- '[sshf] autossh is not installed'
+    return 127
+fi
+
+local host=$1 port
+local -a cmd=(autossh -M 0 -N -o ConnectTimeout=5 -o ExitOnForwardFailure=yes)
 shift
-local forwards=""
 
-# Loop through ports and add proper -L options
 for port in "$@"; do
-    forwards+=" -L ${port}:localhost:${port}"
+    if [[ $port != <1-65535> ]]; then
+        print -u2 -- "[sshf] Invalid port: $port (expected 1-65535)"
+        return 1
+    fi
+    cmd+=(-L "${port}:localhost:${port}")
 done
 
-local cmd="/usr/bin/ssh -N $forwards $host"
-echo "[sshf] Executing: $cmd"
-eval $cmd
+cmd+=("$host")
+print -r -- "[sshf] Executing: ${(q)cmd}"
+"${cmd[@]}"
