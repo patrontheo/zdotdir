@@ -41,14 +41,8 @@ fi
 # Source additional environment if it exists
 [[ -f "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
-# Conda setup if installed
+# Conda installation (shell integration lives in .zshrc.d/conda.zsh).
 export CONDA_HOME="$HOME/miniforge3"
-
-if [[ -n "$CONDA_HOME" ]]; then
-    if [[ -f "$CONDA_HOME/etc/profile.d/conda.sh" ]]; then
-        . "$CONDA_HOME/etc/profile.d/conda.sh"
-    fi
-fi
 
 # NVM configuration if installed
 export NVM_DIR="$HOME/.nvm"
